@@ -35,7 +35,7 @@ const RepoLink = styled.a`
   text-overflow: ellipsis;
 `;
 
-export const RepoItem = ({ repo }) => {
+export const RepoItem = ({ repo }: any) => {
   const { changeStar, changeFollow } = useStore();
 
   const onStarClicked = (starred: boolean) =>

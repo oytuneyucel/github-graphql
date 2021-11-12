@@ -1,5 +1,4 @@
 import { PersistGate } from "zustand-persist";
-import { positions, Provider as AlertProvider } from "react-alert";
 import { ThemeProvider } from "styled-components";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
@@ -20,32 +19,25 @@ const theme = {
     white: "#FFFFFF",
     redPink: "#e6344d",
     cerulean: "#0099d0",
-    lightGrey: "#c7c7c7"
-  }
-};
-
-const alertOptions = {
-  timeout: 5000,
-  position: positions.TOP_RIGHT
+    lightGrey: "#c7c7c7",
+  },
 };
 
 function App() {
   return (
     <PersistGate>
       <ThemeProvider theme={theme}>
-        <AlertProvider {...alertOptions}>
-          <BrowserRouter>
-            <Switch>
-              <Route exact={true} path="/login" component={Login} />
+        <BrowserRouter>
+          <Switch>
+            <Route exact={true} path="/login" component={Login} />
 
-              <AuthenticatedRoute exact={true} path="/">
-                <MainLayout>
-                  <Search />
-                </MainLayout>
-              </AuthenticatedRoute>
-            </Switch>
-          </BrowserRouter>
-        </AlertProvider>
+            <AuthenticatedRoute exact={true} path="/">
+              <MainLayout>
+                <Search />
+              </MainLayout>
+            </AuthenticatedRoute>
+          </Switch>
+        </BrowserRouter>
       </ThemeProvider>
     </PersistGate>
   );
