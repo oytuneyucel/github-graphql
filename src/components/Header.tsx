@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 
 import useStore from "../hooks/useStore";
 import { useInput } from "../hooks/useInput";
+import useMediaQuery from "../hooks/useMediaQuery";
 
 const Container = styled.div`
   display: flex;
@@ -28,6 +29,10 @@ const Container = styled.div`
   p {
     color: white;
   }
+
+  @media (max-width: 700px) {
+    padding: 0 1rem;
+  }
 `;
 
 // @ts-ignore
@@ -46,6 +51,8 @@ const SignOut = styled.h2`
 `;
 
 export const Header = () => {
+  const isDesktop = useMediaQuery("(min-width: 960px)");
+
   const history = useHistory();
   const { user, clearStore, search } = useStore();
   const [query, searchInput] = useInput({ width: "100%" }, true);
@@ -63,7 +70,7 @@ export const Header = () => {
 
   return (
     <Container>
-      <h2>{user}</h2>
+      {isDesktop && <h2>{`${user}`}</h2>}
       {searchInput}
       <SignOut onClick={signOut}>Sign Out</SignOut>
     </Container>

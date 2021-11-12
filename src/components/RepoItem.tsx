@@ -13,7 +13,7 @@ const ResultCard = styled.div`
 
 const DescriptionPanel = styled.div`
   display: flex;
-  width: 7rem;
+  width: 9rem;
   overflow: hidden;
 
   flex-direction: column;
@@ -22,7 +22,7 @@ const DescriptionPanel = styled.div`
 
 const ActionPanel = styled.div`
   width: 7rem;
-  margin-left: 100px;
+  margin-left: 1rem;
   text-align: left;
 `;
 
